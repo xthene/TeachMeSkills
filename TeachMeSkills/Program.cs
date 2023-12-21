@@ -118,36 +118,11 @@ void task5()
 
     if (number >= 10 && number < 100)
     {
-        switch (number / 10)
-        {
-            case 2: Console.Write("двадцать "); break;
-            case 3: Console.Write("tridtsat "); break;
-            case 4: Console.Write("сорок "); break;
-            case 5: Console.Write("пятьдесят "); break;
-            case 6: Console.Write("шестьдесят "); break;
-            case 7: Console.Write("семьдесят "); break;
-            case 8: Console.Write("восемьдесят "); break;
-            case 9: Console.Write("девяносто "); break;
-        }
-
-        switch (number % 10)
-        {
-            case 1: Console.Write("один"); break;
-            case 2: Console.Write("dva"); break;
-            case 3: Console.Write("три"); break;
-            case 4: Console.Write("четыре"); break;
-            case 5: Console.Write("пять"); break;
-            case 6: Console.Write("шесть"); break;
-            case 7: Console.Write("семь"); break;
-            case 8: Console.Write("восемь"); break;
-            case 9: Console.Write("девять"); break;
-        }
-
-        if (number >= 10 && number < 20)
+        if (number < 20)
         {
             switch (number)
             {
-                case 11: Console.WriteLine("одинадцать"); break;
+                case 11: Console.WriteLine("одиннадцать"); break;
                 case 12: Console.WriteLine("двенадцать"); break;
                 case 13: Console.WriteLine("тринадцать"); break;
                 case 14: Console.WriteLine("четырнадцать"); break;
@@ -157,9 +132,37 @@ void task5()
                 case 18: Console.WriteLine("восемнадцать"); break;
                 case 19: Console.WriteLine("девятнадцать"); break;
             }
+        }
+        else
+        {
+            switch (number / 10)
+            {
+                case 2: Console.Write("двадцать "); break;
+                case 3: Console.Write("тридцать "); break;
+                case 4: Console.Write("сорок "); break;
+                case 5: Console.Write("пятьдесят "); break;
+                case 6: Console.Write("шестьдесят "); break;
+                case 7: Console.Write("семьдесят "); break;
+                case 8: Console.Write("восемьдесят "); break;
+                case 9: Console.Write("девяносто "); break;
+            }
 
+            switch (number % 10)
+            {
+                case 1: Console.Write("один"); break;
+                case 2: Console.Write("два"); break;
+                case 3: Console.Write("три"); break;
+                case 4: Console.Write("четыре"); break;
+                case 5: Console.Write("пять"); break;
+                case 6: Console.Write("шесть"); break;
+                case 7: Console.Write("семь"); break;
+                case 8: Console.Write("восемь"); break;
+                case 9: Console.Write("девять"); break;
+            }
         }
     }
+    else
+        Console.WriteLine("Число не входит в заданный диапазон");
 }
 
 void task6()
@@ -238,4 +241,4 @@ void task7()
 }
 
 
-task7();
+task5();
