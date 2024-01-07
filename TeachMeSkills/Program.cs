@@ -13,6 +13,23 @@ int[] createIntArray(int count)
     return result;
 }
 
+int[,] createIntTwoDimensionalArray(int count1, int count2)
+{
+    int[,] result = new int[count1, count2];
+
+    for (int i = 0; i < count1; i++)
+    {
+        for (int j = 0; j < count2; j++)
+        {
+            result[i, j] = new Random().Next(-10, 10);
+            Console.Write(result[i, j] + " ");
+        }
+        Console.WriteLine("");
+    }
+
+    return result;
+}
+
 //Найти минимальный элемент массива
 void task1()
 {
@@ -137,7 +154,6 @@ void task7()
 //Поменять местами первую и вторую половины массива
 void task8()
 {
-    Console.OutputEncoding = Encoding.UTF8;
     Console.WriteLine("Введите длину массива: ");
     var array = createIntArray(Convert.ToInt32(Console.ReadLine()));
     int a = array.Length % 2 == 0 ? array.Length / 2 : array.Length/ 2 + 1;
@@ -156,4 +172,109 @@ void task8()
     }
 }
 
-task8();
+
+//Найти минимальный элемент массива
+void task2_1()
+{
+    Console.WriteLine("Введите длину массива: ");
+    var count1 = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите длину массива: ");
+    var count2 = Convert.ToInt32(Console.ReadLine());
+    var array = createIntTwoDimensionalArray(count1, count2);
+
+    int minElement = array[0, 0];
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (minElement > array[i, j])
+            {
+                minElement = array[i, j];
+            }
+        }
+    }
+
+    Console.WriteLine("\nРезультат: " + minElement);
+}
+
+//Найти максимальный элемент массива
+void task2_2()
+{
+    Console.WriteLine("Введите длину массива: ");
+    var count1 = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите длину массива: ");
+    var count2 = Convert.ToInt32(Console.ReadLine());
+    var array = createIntTwoDimensionalArray(count1, count2);
+
+    int maxElement = array[0, 0];
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (maxElement < array[i, j])
+            {
+                maxElement = array[i, j];
+            }
+        }
+    }
+
+    Console.WriteLine("\nРезультат: " + maxElement);
+}
+
+//Найти индекс минимального элемента массива
+void task2_3()
+{
+    Console.WriteLine("Введите длину массива: ");
+    var count1 = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите длину массива: ");
+    var count2 = Convert.ToInt32(Console.ReadLine());
+    var array = createIntTwoDimensionalArray(count1, count2);
+
+    int minElement = array[0, 0];
+    int result1 = 0;
+    int result2 = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (minElement > array[i, j])
+            {
+                minElement = array[i, j];
+                result1 = i;
+                result2 = j;
+            }
+        }
+    }
+
+    Console.WriteLine("\nРезультат: [" + result1 + ", " + result2 + "]");
+}
+
+//Найти индекс максимального элемента массива
+void task2_4()
+{
+    Console.WriteLine("Введите длину массива: ");
+    var count1 = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("Введите длину массива: ");
+    var count2 = Convert.ToInt32(Console.ReadLine());
+    var array = createIntTwoDimensionalArray(count1, count2);
+
+    int maxElement = array[0, 0];
+    int result1 = 0;
+    int result2 = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (maxElement < array[i, j])
+            {
+                maxElement = array[i, j];
+                result1 = i;
+                result2 = j;
+            }
+        }
+    }
+
+    Console.WriteLine("\nРезультат: [" + result1 + ", " + result2 + "]");
+}
+
+task2_3();
