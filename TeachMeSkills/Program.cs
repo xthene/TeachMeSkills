@@ -177,7 +177,12 @@ void task6()
 
     var distance = Math.Sqrt(Math.Pow((x - x0), 2) + Math.Pow((y - y0), 2));
 
-    Console.WriteLine(distance <= r ? "Точка входит в окружность" : "Точка не входит в окружность");
+    if (distance > r)
+        Console.WriteLine("Точка не входит в окружность");
+    else if (distance < r)
+        Console.WriteLine("Точка входит в окружность");
+    else
+        Console.WriteLine("Точка лежит на окружности");
 }
 
 void task7()
@@ -233,6 +238,11 @@ void task7()
 
             }
             break;
+        default:
+            {
+                Console.WriteLine("Выбран неверный вариант");
+                break;
+            }
     }
 
 }
