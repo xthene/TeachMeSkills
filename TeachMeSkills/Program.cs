@@ -1,14 +1,25 @@
-﻿int Fact(int t)
-{
-    int factorial = 1;
-    int i = 1;
-    do
-    {
-        factorial *= i;
-        i++;
-    } while (i <= t);
+﻿using System.Text;
 
-    return factorial;
+int Factorial(int t)
+{
+    if (t == 1) return 1;
+
+    return t * Factorial(t - 1);
+}
+
+//сумма цифр числа
+int Sum(int x)
+{
+    int sum = 0;
+
+    while (x > 0)
+    {
+        int digit = x % 10;
+        x /= 10;
+        sum += digit;
+    }
+
+    return sum;
 }
 
 void task3_1()
@@ -35,8 +46,7 @@ void task3_2()
     Console.WriteLine("Результат: ");
     for (int i = a; i <= 1000; i += a)
     {
-        if ((i % a) == 0)
-            Console.WriteLine(i);
+        Console.WriteLine(i);
     }
 }
 
@@ -50,6 +60,8 @@ void task3_3()
     {
         if (Math.Pow(i, 2) < a)
             count++;
+        else
+            break;
     }
 
     Console.WriteLine("Результат: " + count);
@@ -59,15 +71,18 @@ void task3_4()
 {
     Console.WriteLine("Введите число А: ");
     var a = Convert.ToInt32(Console.ReadLine());
-    List<int> divisors = new List<int>();
+    int result = 0;
 
-    for (int i = 1; i < a; i++)
+    for (int i = a - 1; i > 0; i--)
     {
         if ((a % i) == 0)
-            divisors.Add(i);
+        {
+            result = i; 
+            break;
+        }
     }
 
-    Console.WriteLine("Результат: " + divisors.Max());
+    Console.WriteLine("Результат: " + result);
 }
 
 void task3_5()
@@ -84,16 +99,11 @@ void task3_5()
         if (a % divisor == 0)
             sum = a;
     }
-    else if (a > b)
+    else
     {
-        for (double i = b; i <= a; i++)
-        {
-            if (i % divisor == 0)
-                sum += i;
-        }
-    }
-    else if (a < b)
-    {
+        if (b < a)
+            (a, b) = (b, a);
+
         for (double i = a; i <= b; i++)
             if (i % divisor == 0)
                 sum += i;
@@ -308,7 +318,7 @@ void task3_13()
     {
         while (n > 0)
         {
-            res += 1 + 1 / Math.Pow(n, 2);
+            res += 1 + 1.0 / (n*n);
             n--;
         }
 
@@ -350,7 +360,7 @@ void task3_14_2()
 
     for (int i = 1; i <= n; i++)
     {
-        result += Math.Pow(x, i) / Fact(i);
+        result += Math.Pow(x, i) / Factorial(i);
     }
 
     Console.WriteLine(result);
@@ -364,7 +374,7 @@ void task3_15_1()
 
     for (int i = 1; i <= n; i++)
     {
-        result *= (2 + 1.0 / Fact(i));
+        result *= (2 + 1.0 / Factorial(i));
     }
 
     Console.WriteLine(result);
@@ -378,7 +388,7 @@ void task3_15_2()
 
     for (int i = 1; i <= n; i++)
     {
-        result += (1.0 + i) / Fact(i);
+        result += (1.0 + i) / Factorial(i);
     }
 
     Console.WriteLine(result);
@@ -431,20 +441,6 @@ void task3_16_3()
 
 void task3_17()
 {
-    int Sum(int x)
-    {
-        int sum = 0;
-
-        while (x > 0)
-        {
-            int digit = x % 10;
-            x /= 10;
-            sum += digit;
-        }
-
-        return sum;
-    }
-
     for (int i = 10; i <= 99; i++)
     {
         //флаг сбрасывается в false, как только находится число, в котором сумма цифр не равна сумме цифр до умножения
@@ -455,7 +451,35 @@ void task3_17()
             var sumAfter = Sum(i * j);
 
             if (sumBefore != sumAfter)
-                res = false;
+            {
+                res = false; 
+                break;
+            }
+        }
+
+        if (res)
+            Console.WriteLine(i);
+    }
+}
+
+
+//17 задача, где ИЛИ вместо И
+void task3_17_2()
+{
+    for (int i = 10; i <= 99; i++)
+    {
+        //флаг сбрасывается в false, как только находится число, в котором сумма цифр не равна сумме цифр до умножения
+        var res = false;
+        var sumBefore = Sum(i);
+        for (int j = 2; j <= 9; j++)
+        {
+            var sumAfter = Sum(i * j);
+
+            if (sumBefore == sumAfter)
+            {
+                res = true;
+                break;
+            }
         }
 
         if (res)
@@ -470,7 +494,7 @@ void task3_18()
         int hundreds = i / 100;
         int tens = i / 10 % 10;
         int units = i % 10;
-        int sum = Fact(hundreds) + Fact(tens) + Fact(units);
+        int sum = Factorial(hundreds) + Factorial(tens) + Factorial(units);
 
         if (i == sum)
             Console.WriteLine(i);
