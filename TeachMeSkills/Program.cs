@@ -277,4 +277,81 @@ void task2_4()
     Console.WriteLine("\nРезультат: [" + result1 + ", " + result2 + "]");
 }
 
+//5.  Найти количество элементов массива, которые больше всех своих соседей одновременно
+void task2_5()
+{
+    var array = createIntTwoDimensionalArray(5, 4);
+    //var array = new int[,] { { 0, 9, 2 }, {9, 4, 9}, { 2, 9, 2 } };
+    var rowsCount = array.GetLength(0);
+    var columnsCount = array.GetLength(1);
+    var lastElementIndex1 = rowsCount - 1;
+    var lastElementIndex2 = columnsCount - 1;
+    var result = 0;
+
+    //у верхнего левого элемента [0, 0] два соседних элемента
+    if (array[0, 0] > array[1, 0] && array[0, 0] > array[0, 1])
+        result++;
+
+    //для нижнего правого
+    if (array[lastElementIndex1, lastElementIndex2] > array[lastElementIndex1 - 1, lastElementIndex2] &&
+        array[lastElementIndex1, lastElementIndex2] > array[lastElementIndex1, lastElementIndex2 - 1])
+        result++;
+
+    //для верхнего правого
+    if (array[0, lastElementIndex2] > array[0, lastElementIndex2 - 1] &&
+        array[0, lastElementIndex2] > array[1, lastElementIndex2])
+        result++;
+
+    //для нижнего левого
+    if (array[lastElementIndex1, 0] > array[lastElementIndex1 - 1, 0] &&
+        array[lastElementIndex1, 0] > array[lastElementIndex1, 1])
+        result++;
+
+    //элементы первой строки кроме крайних
+    for (int i = 1; i <= lastElementIndex2 - 1; i++)
+    {
+        if (array[0, i] > array[0, i - 1] && array[0, i] > array[1, i] && array[0, i] > array[0, i + 1])
+            result++;
+    }
+
+    //элементы последней строки кроме крайних
+    for (int i = 1; i <= lastElementIndex2 - 1; i++)
+    {
+        if (array[lastElementIndex1, i] > array[lastElementIndex1, i - 1] &&
+            array[lastElementIndex1, i] > array[lastElementIndex1 - 1, i] &&
+            array[lastElementIndex1, i] > array[lastElementIndex1, i + 1])
+            result++;
+    }
+
+    //элементы первого столбца кроме крайних
+    for (int i = 1; i <= lastElementIndex1 - 1; i++)
+    {
+        if (array[i, 0] > array[i - 1, 0] &&
+            array[i, 0] > array[i, 1] &&
+            array[i, 0] > array[i + 1, 0])
+            result++;
+    }
+
+    //элементы последнего столбца кроме крайних
+    for (int i = 1; i <= lastElementIndex1 - 1; i++)
+    {
+        if (array[i, lastElementIndex2] > array[i - 1, lastElementIndex2] &&
+           array[i, lastElementIndex2] > array[i, lastElementIndex2 - 1] &&
+           array[i, lastElementIndex2] > array[i + 1, lastElementIndex2])
+            result++;
+    }
+
+    //для остальных элементов
+    for (int i = 1; i < array.GetLength(0) - 1; i++)
+    {
+        for (int j = 1; j < array.GetLength(1) - 1; j++)
+        {
+            if (array[i, j] > array[i + 1, j] && array[i, j] > array[i, j + 1] && array[i, j] > array[i, j - 1] && array[i, j] > array[i - 1, j])
+                result++;
+        }
+    }
+
+    Console.WriteLine(result);
+}
+
 task2_3();
