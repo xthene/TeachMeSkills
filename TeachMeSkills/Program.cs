@@ -1,16 +1,17 @@
-﻿using System.Text;
-
-int[] createIntArray(int count)
+﻿int[] createIntArray(int count)
 {
     int[] result = new int[count];
 
     for (int i = 0; i < count; i++)
-    {
         result[i] = new Random().Next(-100, 100);
-        Console.Write(result[i] + " ");
-    }
 
     return result;
+}
+
+void outputArray(int[] array)
+{
+    foreach (int item in array)
+        Console.Write(item + " ");
 }
 
 int[,] createIntTwoDimensionalArray(int count1, int count2)
@@ -22,18 +23,29 @@ int[,] createIntTwoDimensionalArray(int count1, int count2)
         for (int j = 0; j < count2; j++)
         {
             result[i, j] = new Random().Next(-10, 10);
-            Console.Write(result[i, j] + " ");
         }
-        Console.WriteLine("");
     }
 
     return result;
+}
+
+void outputTwoDimensionalArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j]);
+        }
+        Console.WriteLine("");
+    }
 }
 
 //Найти минимальный элемент массива
 void task1()
 {
     var array = createIntArray(10);
+    outputArray(array);
     int result = array[0];
 
     foreach (var item in array)
@@ -49,6 +61,7 @@ void task1()
 void task2()
 {
     var array = createIntArray(10);
+    outputArray(array);
     int result = array[0];
 
     foreach (var item in array)
@@ -65,6 +78,7 @@ void task2()
 void task3()
 {
     var array = createIntArray(10);
+    outputArray(array);
     int minElement = array[0];
     int result = 0;
 
@@ -84,6 +98,7 @@ void task3()
 void task4()
 {
     var array = createIntArray(10);
+    outputArray(array);
     int maxElement = array[0];
     int result = 0;
 
@@ -103,6 +118,7 @@ void task4()
 void task5()
 {
     var array = createIntArray(10);
+    outputArray(array);
     int result = 0;
 
     for (int i = 0; i < array.Length; i++)
@@ -119,6 +135,7 @@ void task6()
 {
     Console.WriteLine("Введите длину массива: ");
     var array = createIntArray(Convert.ToInt32(Console.ReadLine()));
+    outputArray(array);
     int temp;
 
     for (int i = 0, j = array.Length - 1; i < j; i++, j--)
@@ -140,6 +157,7 @@ void task7()
 {
     Console.WriteLine("Введите длину массива: ");
     var array = createIntArray(Convert.ToInt32(Console.ReadLine()));
+    outputArray(array);
     int result = 0;
 
     for (int i = 0; i < array.Length; i++)
@@ -156,7 +174,8 @@ void task8()
 {
     Console.WriteLine("Введите длину массива: ");
     var array = createIntArray(Convert.ToInt32(Console.ReadLine()));
-    int a = array.Length % 2 == 0 ? array.Length / 2 : array.Length/ 2 + 1;
+    outputArray(array);
+    int a = array.Length % 2 == 0 ? array.Length / 2 : array.Length / 2 + 1;
 
     for (int i = 0; i < array.Length / 2; i++)
     {
@@ -181,6 +200,7 @@ void task2_1()
     Console.WriteLine("Введите длину массива: ");
     var count2 = Convert.ToInt32(Console.ReadLine());
     var array = createIntTwoDimensionalArray(count1, count2);
+    outputTwoDimensionalArray(array);
 
     int minElement = array[0, 0];
     for (int i = 0; i < array.GetLength(0); i++)
@@ -205,6 +225,7 @@ void task2_2()
     Console.WriteLine("Введите длину массива: ");
     var count2 = Convert.ToInt32(Console.ReadLine());
     var array = createIntTwoDimensionalArray(count1, count2);
+    outputTwoDimensionalArray(array);
 
     int maxElement = array[0, 0];
     for (int i = 0; i < array.GetLength(0); i++)
@@ -229,6 +250,7 @@ void task2_3()
     Console.WriteLine("Введите длину массива: ");
     var count2 = Convert.ToInt32(Console.ReadLine());
     var array = createIntTwoDimensionalArray(count1, count2);
+    outputTwoDimensionalArray(array);
 
     int minElement = array[0, 0];
     int result1 = 0;
@@ -257,6 +279,7 @@ void task2_4()
     Console.WriteLine("Введите длину массива: ");
     var count2 = Convert.ToInt32(Console.ReadLine());
     var array = createIntTwoDimensionalArray(count1, count2);
+    outputTwoDimensionalArray(array);
 
     int maxElement = array[0, 0];
     int result1 = 0;
@@ -281,6 +304,7 @@ void task2_4()
 void task2_5()
 {
     var array = createIntTwoDimensionalArray(5, 4);
+    outputTwoDimensionalArray(array);
     //var array = new int[,] { { 0, 9, 2 }, {9, 4, 9}, { 2, 9, 2 } };
     var rowsCount = array.GetLength(0);
     var columnsCount = array.GetLength(1);
@@ -353,5 +377,3 @@ void task2_5()
 
     Console.WriteLine(result);
 }
-
-task2_3();
