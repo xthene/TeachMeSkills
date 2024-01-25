@@ -1,31 +1,31 @@
 ﻿namespace TeachMeSkills
 {
-    internal class Patient
+    public class Patient
     {
-        public TreatmentPlan plan;
-        public Doctor doctor;
+        TreatmentPlan Plan { get; set; }
+        private Doctor? Doctor { get; set; }
 
         public Patient(TreatmentPlan plan)
         {
-            this.plan = plan;
+            this.Plan = plan;
         }
 
         public void AppointDoctor()
         {
-            switch (plan.code)
+            switch (Plan.Code)
             {
                 case 1:
-                    doctor = new Surgeon();
+                    Doctor = new Surgeon();
                     break;
                 case 2:
-                    doctor = new Dentist();
+                    Doctor = new Dentist();
                     break;
                 default:
-                    doctor = new Therapist();
+                    Doctor = new Therapist();
                     break;
             }
 
-            doctor.Treat();
+            Doctor.Treat();
         }
     }
 }

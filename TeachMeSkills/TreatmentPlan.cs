@@ -2,11 +2,11 @@
 {
     public class TreatmentPlan
     {
-        public int code;
+        public int Code {  get; set; }
 
         public TreatmentPlan(int code)
         {
-            this.code = code;
+            this.Code = code;
         }
     }
 }
