@@ -2,10 +2,6 @@
 {
     public class Dentist : Doctor
     {
-        public Dentist()
-        {
-
-        }
         public Dentist(string name) : base(name)
         {
         }
@@ -17,6 +13,11 @@
         public override void Treat()
         {
             Console.WriteLine("Dentist treat");
+        }
+
+        public override void Work()
+        {
+            Console.WriteLine("Work as a dentist");
         }
     }
 }

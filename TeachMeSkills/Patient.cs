@@ -1,31 +1,53 @@
 ﻿namespace TeachMeSkills
 {
-    public class Patient
+    public class Patient : ITreatable
     {
-        TreatmentPlan Plan { get; set; }
-        private Doctor? Doctor { get; set; }
+        public string Name { get; set; }
+        public List<TreatmentPlan> Plans {  get; set; } = new List<TreatmentPlan>();
+        private List<Doctor> Doctors { get; set; } = new List<Doctor>();
+        private List<Diagnosis> Diagnoses { get; set; }
 
-        public Patient(TreatmentPlan plan)
+        public Patient(string name, List<Diagnosis> diagnoses)
         {
-            this.Plan = plan;
+            this.Name = name;
+            this.Diagnoses = diagnoses;
         }
 
-        public void AppointDoctor()
+        public void AppointPlans()
         {
-            switch (Plan.Code)
+            foreach (var diagnosis in Diagnoses)
             {
-                case 1:
-                    Doctor = new Surgeon();
-                    break;
-                case 2:
-                    Doctor = new Dentist();
-                    break;
-                default:
-                    Doctor = new Therapist();
-                    break;
+                Plans.Add(new TreatmentPlan("treatment plan for " + diagnosis.Name, diagnosis.Code));
+            }
+        }
+
+        public void AppointDoctors()
+        {
+            foreach (var diagnosis in Diagnoses)
+            {
+                switch (diagnosis.Code)
+                {
+                    case 1:
+                        Doctors.Add(new Surgeon("surgeon"));
+                        break;
+                    case 2:
+                        Doctors.Add(new Dentist("dentist"));
+                        break;
+                    default:
+                        Doctors.Add(new Therapist("therapist"));
+                        break;
+                }
             }
 
-            Doctor.Treat();
+            foreach (var doc in Doctors)
+            {
+                doc.Treat();
+            }
+        }
+
+        public void GetTreatment()
+        {
+            
         }
     }
 }

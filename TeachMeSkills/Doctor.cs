@@ -1,20 +1,15 @@
 ﻿namespace TeachMeSkills
 {
-    public abstract class Doctor
+    public abstract class Doctor : Employee
     {
-        string Name { get; set; }
         private double Salary { get; set; }
 
-        protected Doctor()
-        {
-        }
-
-        protected Doctor(string name)
+        protected Doctor(string name) : base(name)
         {
             this.Name = name;
         }
 
-        protected Doctor(string name, double salary)
+        protected Doctor(string name, double salary) : base(name)
         {
             this.Name = name;
             this.Salary = salary;
