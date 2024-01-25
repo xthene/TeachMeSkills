@@ -4,10 +4,6 @@
     {
         public string? BodyPart { get; set; }
 
-        public Surgeon()
-        {
-        }
-
         public Surgeon(string name) : base(name) { }
         public Surgeon(string name, double salary) : base(name, salary) { }
 
@@ -18,6 +14,11 @@
         public override void Treat()
         {
             Console.WriteLine("Surgeon treats");
+        }
+
+        public override void Work()
+        {
+            Console.WriteLine("Work as a surgeon");
         }
     }
 }
