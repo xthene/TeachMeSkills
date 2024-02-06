@@ -1,22 +1,22 @@
-﻿using TeachMeSkills;
+﻿using TeachMeSkills.Doctors;
+using TeachMeSkills;
 
-var pulpitis = new Diagnosis("Pulpitis", 2);
-var flu = new Diagnosis("Flu", 3);
-var rupture = new Diagnosis("Rupture", 1);
+Clinic clinic24 = new Clinic();
 
-Patient p1 = new Patient("Mike", new List<Diagnosis> { pulpitis, flu});
-p1.AppointDoctors();
-Patient p2 = new Patient("Sara", new List<Diagnosis> { rupture });
-p2.AppointDoctors();
-Patient p3 = new Patient("Kevin", new List<Diagnosis> { flu });
-p3.AppointDoctors();
-Patient p4 = new Patient("Chester", new List<Diagnosis> { pulpitis, flu, rupture });
-p4.AppointDoctors();
-
-p4.AppointPlans();
-
-Console.WriteLine("Patient {0} treatment plan: ", p4.Name);
-foreach (var plan in p4.Plans)
+foreach (var patient in clinic24.Patients)
 {
-    Console.WriteLine(plan.Name);
+    patient.AppointDoctors(clinic24.Doctors);
 }
+
+clinic24.Patients.FirstOrDefault(p => p.Name == "Mike")?.AppointPlans();
+
+clinic24.MakeAnAppointment(clinic24.Patients.FirstOrDefault(p => p.Name == "Mike"),
+    clinic24.Doctors.FirstOrDefault(d => d.Specialization == Specializations.Therapist && d.Name == "Kolya"),
+    new DateTime(2024, 02, 06, 10, 00, 00));
+clinic24?.MakeAnAppointment(clinic24.Patients.FirstOrDefault(p => p.Name == "Kevin"),
+    clinic24.Doctors.FirstOrDefault(d => d.Specialization == Specializations.Therapist && d.Name == "Kolya"),
+    new DateTime(2024, 02, 06, 10, 00, 00));
+clinic24?.MakeAnAppointment(clinic24.Patients.FirstOrDefault(p => p.Name == "Kevin"),
+    clinic24.Doctors.FirstOrDefault(d => d.Specialization == Specializations.Therapist && d.Name == "Kolya"),
+    new DateTime(2024, 02, 06, 21, 00, 00));
+

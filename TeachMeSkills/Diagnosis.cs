@@ -1,11 +1,18 @@
 ﻿namespace TeachMeSkills
 {
+    public enum Diagnoses
+    {
+        Pulpitis,
+        Flu,
+        Rupture
+    }
+
     public class Diagnosis
     {
-        public string Name { get; set; }
+        public Diagnoses Name { get; set; }
         public int Code { get; set; }
 
-        public Diagnosis(string name, int code)
+        public Diagnosis(Diagnoses name, int code)
         {
             this.Name = name;
             this.Code = code;

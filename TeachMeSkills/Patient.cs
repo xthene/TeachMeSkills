@@ -1,4 +1,7 @@
-﻿namespace TeachMeSkills
+﻿using TeachMeSkills.Doctors;
+using TeachMeSkills.Interfaces;
+
+namespace TeachMeSkills
 {
     public class Patient : ITreatable
     {
@@ -17,24 +20,27 @@
         {
             foreach (var diagnosis in Diagnoses)
             {
-                Plans.Add(new TreatmentPlan("treatment plan for " + diagnosis.Name, diagnosis.Code));
+                var plan = new TreatmentPlan("Treatment plan for " + diagnosis.Name, diagnosis.Code);
+                Plans.Add(plan);
+
+                Console.WriteLine("{0} appointed for {1}", plan.Name, Name);
             }
         }
 
-        public void AppointDoctors()
+        public void AppointDoctors(List<Doctor> doctors)
         {
             foreach (var diagnosis in Diagnoses)
             {
                 switch (diagnosis.Code)
                 {
                     case 1:
-                        Doctors.Add(new Surgeon("surgeon"));
+                        Doctors.Add(doctors.FirstOrDefault(d => d.Specialization == Specializations.Surgeon));
                         break;
                     case 2:
-                        Doctors.Add(new Dentist("dentist"));
+                        Doctors.Add(doctors.FirstOrDefault(d => d.Specialization == Specializations.Dentist));
                         break;
                     default:
-                        Doctors.Add(new Therapist("therapist"));
+                        Doctors.Add(doctors.FirstOrDefault(d => d.Specialization == Specializations.Therapist));
                         break;
                 }
             }

@@ -1,8 +1,10 @@
-﻿namespace TeachMeSkills
+﻿using TeachMeSkills.Interfaces;
+
+namespace TeachMeSkills
 {
     public abstract class Employee : IWorkable
     {
-        protected string Name { get; set; }
+        public string Name { get; set; }
 
         protected Employee(string name)
         {
