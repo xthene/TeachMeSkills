@@ -1,19 +1,19 @@
-﻿using TeachMeSkills.Doctors;
+﻿using TeachMeSkills.Entities.Doctors;
 using TeachMeSkills.Interfaces;
 
-namespace TeachMeSkills
+namespace TeachMeSkills.Entities
 {
     public class Patient : ITreatable
     {
         public string Name { get; set; }
-        public List<TreatmentPlan> Plans {  get; set; } = new List<TreatmentPlan>();
+        public List<TreatmentPlan> Plans { get; set; } = new List<TreatmentPlan>();
         private List<Doctor> Doctors { get; set; } = new List<Doctor>();
         private List<Diagnosis> Diagnoses { get; set; }
 
         public Patient(string name, List<Diagnosis> diagnoses)
         {
-            this.Name = name;
-            this.Diagnoses = diagnoses;
+            Name = name;
+            Diagnoses = diagnoses;
         }
 
         public void AppointPlans()
@@ -53,7 +53,7 @@ namespace TeachMeSkills
 
         public void GetTreatment()
         {
-            
+
         }
     }
 }

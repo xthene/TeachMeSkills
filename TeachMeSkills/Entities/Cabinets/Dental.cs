@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TeachMeSkills
+namespace TeachMeSkills.Entities.Cabinets
 {
-    internal class Cabinet<T>
+    internal class Dental : Cabinet
     {
     }
 }

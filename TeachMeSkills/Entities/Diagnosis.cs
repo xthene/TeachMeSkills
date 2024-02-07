@@ -1,4 +1,4 @@
-﻿namespace TeachMeSkills
+﻿namespace TeachMeSkills.Entities
 {
     public enum Diagnoses
     {
@@ -14,8 +14,8 @@
 
         public Diagnosis(Diagnoses name, int code)
         {
-            this.Name = name;
-            this.Code = code;
+            Name = name;
+            Code = code;
         }
 
     }

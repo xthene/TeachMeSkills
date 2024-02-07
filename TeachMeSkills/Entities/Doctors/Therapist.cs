@@ -1,4 +1,4 @@
-﻿namespace TeachMeSkills.Doctors
+﻿namespace TeachMeSkills.Entities.Doctors
 {
     public class Therapist : Doctor
     {

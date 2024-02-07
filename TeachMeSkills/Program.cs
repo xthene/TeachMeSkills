@@ -1,5 +1,5 @@
-﻿using TeachMeSkills.Doctors;
-using TeachMeSkills;
+﻿using TeachMeSkills.Entities;
+using TeachMeSkills.Entities.Doctors;
 
 Clinic clinic24 = new Clinic();
 

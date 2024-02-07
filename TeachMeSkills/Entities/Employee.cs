@@ -1,6 +1,6 @@
 ﻿using TeachMeSkills.Interfaces;
 
-namespace TeachMeSkills
+namespace TeachMeSkills.Entities
 {
     public abstract class Employee : IWorkable
     {
@@ -8,7 +8,7 @@ namespace TeachMeSkills
 
         protected Employee(string name)
         {
-            this.Name = name;
+            Name = name;
         }
 
         public virtual void Work()

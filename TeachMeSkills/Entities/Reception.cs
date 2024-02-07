@@ -1,6 +1,6 @@
-﻿using TeachMeSkills.Doctors;
+﻿using TeachMeSkills.Entities.Doctors;
 
-namespace TeachMeSkills
+namespace TeachMeSkills.Entities
 {
     public class Reception
     {
