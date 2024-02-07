@@ -1,15 +1,15 @@
-﻿namespace TeachMeSkills
+﻿namespace TeachMeSkills.Entities.Doctors
 {
     public class Surgeon : Doctor
     {
         public string? BodyPart { get; set; }
 
-        public Surgeon(string name) : base(name) { }
+        public Surgeon(string name, Specializations specialization) : base(name, specialization) { }
         public Surgeon(string name, double salary) : base(name, salary) { }
 
         public Surgeon(string name, double salary, string? bodyPart) : base(name, salary)
         {
-            this.BodyPart = bodyPart;
+            BodyPart = bodyPart;
         }
         public override void Treat()
         {

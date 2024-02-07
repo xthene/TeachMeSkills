@@ -1,8 +1,8 @@
-﻿namespace TeachMeSkills
+﻿namespace TeachMeSkills.Entities.Doctors
 {
     public class Dentist : Doctor
     {
-        public Dentist(string name) : base(name)
+        public Dentist(string name, Specializations specialization) : base(name, specialization)
         {
         }
 

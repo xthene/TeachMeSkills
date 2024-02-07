@@ -1,12 +1,14 @@
-﻿namespace TeachMeSkills
+﻿using TeachMeSkills.Interfaces;
+
+namespace TeachMeSkills.Entities
 {
     public abstract class Employee : IWorkable
     {
-        protected string Name { get; set; }
+        public string Name { get; set; }
 
         protected Employee(string name)
         {
-            this.Name = name;
+            Name = name;
         }
 
         public virtual void Work()

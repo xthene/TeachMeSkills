@@ -1,8 +1,8 @@
-﻿namespace TeachMeSkills
+﻿namespace TeachMeSkills.Entities.Doctors
 {
     public class Therapist : Doctor
     {
-        public Therapist(string name) : base(name) { }
+        public Therapist(string name, Specializations specialization) : base(name, specialization) { }
         public Therapist(string name, double salary) : base(name, salary) { }
         public override void Treat()
         {

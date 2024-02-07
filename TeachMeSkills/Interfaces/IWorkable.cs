@@ -1,4 +1,4 @@
-﻿namespace TeachMeSkills
+﻿namespace TeachMeSkills.Interfaces
 {
     internal interface IWorkable
     {
