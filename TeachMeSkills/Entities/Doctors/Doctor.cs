@@ -47,5 +47,10 @@ namespace TeachMeSkills.Entities.Doctors
 
             return res;
         }
+
+        public override string ToString()
+        {
+            return Specialization.ToString() + " " + base.Name;
+        }
     }
 }
