@@ -108,5 +108,75 @@ namespace TeachMeSkillsTests
 
             Assert.AreEqual(res, expectedResult);
         }
+
+        [Test]
+        public void CountWords_CorrectText_ReturnedExpectedResult()
+        {
+            var res = LinqHomeWork.CountWords("qwe rty uio o");
+            var expectedResult = 4;
+
+            Assert.AreEqual(expectedResult, res);
+        }
+
+        [Test]
+        public void CountWords_StringWithOneSpaceAtTheBeginningAndEnd_ReturnedExpectedResult()
+        {
+            var res = LinqHomeWork.CountWords(" qwe rty uio o ");
+            var expectedResult = 4;
+
+            Assert.AreEqual(expectedResult, res);
+        }
+
+        [Test]
+        public void CountWords_StringWithMultipleSpacesInARow_ReturnedExpectedResult()
+        {
+            var res = LinqHomeWork.CountWords(" qwe       rty     uio o ");
+            var expectedResult = 4;
+
+            Assert.AreEqual(expectedResult, res);
+        }
+
+        [Test]
+        public void CountWords_EmptyString_Returned0()
+        {
+            Assert.AreEqual(LinqHomeWork.CountWords(string.Empty), 0);
+        }
+
+        [Test]
+        public void CountWords_StringWithoutSpaces_Returned1()
+        {
+            Assert.AreEqual(LinqHomeWork.CountWords("qwerty"), 1);
+        }
+
+        [Test]
+        public void FizzBuzz_Returned100Elements()
+        {
+            Assert.AreEqual(LinqHomeWork.FizzBuzz().Count, 100);
+
+        }
+
+        [Test]
+        public void FizzBuzz_FirstElementIs1()
+        {
+            Assert.AreEqual(LinqHomeWork.FizzBuzz().FirstOrDefault(), 1.ToString());
+        }
+
+        [Test]
+        public void FizzBuzz_LastElementIsBuzz()
+        {
+            Assert.AreEqual(LinqHomeWork.FizzBuzz().LastOrDefault(), "Buzz");
+        }
+
+        [Test]
+        public void FizzBuzz_ElementWithIndex98IsFizz()
+        {
+            Assert.AreEqual(LinqHomeWork.FizzBuzz().ElementAt(98), "Fizz");
+        }
+
+        [Test]
+        public void FizzBuzz_ElementWithIndex29IsFizzBuzz()
+        {
+            Assert.AreEqual(LinqHomeWork.FizzBuzz().ElementAt(29), "FizzBuzz");
+        }
     }
 }
