@@ -125,21 +125,38 @@ public static class LinqHomeWork
         return result;
     }
 
+    public static int CountWords(string text)
+    {
+        return text.Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
+    }
+
+    public static List<string> FizzBuzz()
+    {
+        var result = new List<string>();
+        for (int i = 1; i <= 100; i++)
+        {
+            if (i % 3 == 0 && i % 5 == 0)
+                result.Add("FizzBuzz");
+            else if (i % 3 == 0)
+                result.Add("Fizz");
+            else if (i % 5 == 0)
+                result.Add("Buzz");
+
+            else
+            {
+                result.Add(i.ToString());
+            }
+        }
+
+        return result;
+    }
+
     public static void Main()
     {
-        Console.WriteLine("Извлечение положительных двузначных чисел из последовательности:");
-        GetPositiveTwoDigitNumbers();
-        Console.WriteLine("Выборка чётных чисел из последовательности:");
-        GetEvenNumbers();
-        Console.WriteLine("Вывод слова в обратном порядке:");
-        Reverse();
-        Console.WriteLine("Изменение первой буквы в именах:");
-        ChangeFirstLetter();
-        Console.WriteLine("Объединение списков имен и фильтрация по предпоследней букве:");
-        UnionListsOfNames();
-        Console.WriteLine("Сортировка имён по длине:");
-        SortNamesByLength();
-        Console.WriteLine("Фильтрация списка продуктов по цене:");
-        FilterProductsListByPrice();
+        //Console.WriteLine("Введите строку: ");
+        //Console.WriteLine("Количество слов в строке: " + CountWords(Console.ReadLine()));
+
+        OutputResult(FizzBuzz());
+
     }
 }
