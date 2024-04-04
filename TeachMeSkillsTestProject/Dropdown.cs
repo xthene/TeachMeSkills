@@ -10,8 +10,6 @@ namespace TeachMeSkillsTestProject
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            ChromeOptions options = new ChromeOptions();
-
             Driver = new ChromeDriver();
 
             Driver.Navigate().GoToUrl("https://the-internet.herokuapp.com/dropdown");
@@ -32,7 +30,7 @@ namespace TeachMeSkillsTestProject
             var dropdown = Driver.FindElement(By.Id("dropdown"));
             var options = dropdown.FindElements(By.TagName("option"));
 
-            Assert.IsNotNull(options);
+            Assert.That(options.Count, Is.EqualTo(2));
         }
 
         [Test]
