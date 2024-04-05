@@ -4,7 +4,7 @@ using TeachMeSkills.Helpers;
 namespace TeachMeSkills.Test.LoginTests
 {
     [TestFixture]
-    internal class PositiveTests : BaseTest
+    public class PositiveTests : BaseTest
     {
         [SetUp]
         public void Setup()

@@ -2,7 +2,7 @@
 
 namespace TeachMeSkills.Pages
 {
-    internal class BasePage
+    public class BasePage
     {
         private IWebDriver Driver { get; set; }
 

@@ -5,7 +5,7 @@ using TeachMeSkills.Pages;
 
 namespace TeachMeSkills.Test
 {
-    internal class BaseTest
+    public class BaseTest
     {
         public IWebDriver Driver { get; set; }
         public LoginPage LoginPage { get; set; }

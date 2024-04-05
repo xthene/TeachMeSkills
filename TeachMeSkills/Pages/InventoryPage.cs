@@ -2,7 +2,7 @@
 
 namespace TeachMeSkills.Pages
 {
-    internal class InventoryPage : BasePage
+    public class InventoryPage : BasePage
     {
         private static readonly By productsTitleBy = By.XPath("//*[.='Products']");
         private static readonly By backpackLink = By.LinkText("Sauce Labs Backpack");

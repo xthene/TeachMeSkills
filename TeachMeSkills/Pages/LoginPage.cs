@@ -2,11 +2,12 @@
 
 namespace TeachMeSkills.Pages
 {
-    internal class LoginPage : BasePage
+    public class LoginPage : BasePage
     {
         private readonly By userNameInputBy = By.Id("user-name");
         private readonly By passwordInputBy = By.Name("password");
-        private readonly By loginButtonBy = By.TagName("input");
+        private readonly By loginButtonBy = By.Id("login-button");
+        private readonly By errorTitleBy = By.TagName("h3");
 
         private IWebDriver Driver { get; set; }
 
@@ -18,6 +19,7 @@ namespace TeachMeSkills.Pages
         public IWebElement UsernameInput() => Driver.FindElement(userNameInputBy);
         public IWebElement PasswordInput() => Driver.FindElement(passwordInputBy);
         public IWebElement LoginButton() => Driver.FindElement(loginButtonBy);
+        public IWebElement ErrorTitle() => Driver.FindElement(errorTitleBy);
 
         public void Login(string username = "", string password = "")
         {

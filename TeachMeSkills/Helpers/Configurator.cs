@@ -7,7 +7,7 @@ namespace TeachMeSkills.Helpers
     {
         public static AppSettings ReadConfiguration()
         {
-            var appSettingsPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "appsettings.json");
+            var appSettingsPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName, "appsettings.json");
             var appSettingsText = File.ReadAllText(appSettingsPath);
 
             return JsonConvert.DeserializeObject<AppSettings>(appSettingsText) ?? throw new FileNotFoundException();
