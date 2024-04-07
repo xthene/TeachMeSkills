@@ -14,8 +14,6 @@ namespace TeachMeSkillsTestProject
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            ChromeOptions options = new ChromeOptions();
-
             Driver = new ChromeDriver();
 
             Driver.Navigate().GoToUrl("https://the-internet.herokuapp.com/add_remove_elements/");
