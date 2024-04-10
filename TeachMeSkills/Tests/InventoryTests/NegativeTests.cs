@@ -1,12 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NUnit.Framework;
+using TeachMeSkills.Helpers;
 
 namespace TeachMeSkills.Test.InventoryTests
 {
+    [TestFixture]
     internal class NegativeTests : BaseTest
     {
+        [SetUp]
+        public void Setup()
+        {
+            Driver.Navigate().GoToUrl(Configurator.ReadConfiguration().SauceDemoUrl);
+            LoginPage.Login(Configurator.ReadConfiguration().UserNameSauceDemo,
+                Configurator.ReadConfiguration().PasswordSauceDemo);
+        }
+
+        [Test]
+        public void Test()
+        {
+
+        }
     }
 }

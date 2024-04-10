@@ -11,6 +11,7 @@ namespace TeachMeSkills.Test
         public LoginPage LoginPage { get; set; }
         public InventoryPage InventoryPage { get; set; }
         public CartPage CartPage { get; set; }
+        public HeaderPage HeaderPage { get; set; }
 
         [SetUp]
         public void Setup()
@@ -19,6 +20,7 @@ namespace TeachMeSkills.Test
             LoginPage = new LoginPage(Driver);
             InventoryPage = new InventoryPage(Driver);
             CartPage = new CartPage(Driver);
+            HeaderPage = new HeaderPage(Driver);
         }
 
         [TearDown]
