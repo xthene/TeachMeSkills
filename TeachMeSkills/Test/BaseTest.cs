@@ -1,24 +1,23 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+using TeachMeSkills.Core;
+using TeachMeSkills.Helpers;
 using TeachMeSkills.Pages;
 
 namespace TeachMeSkills.Test
 {
-    public class BaseTest
+    internal class BaseTest
     {
-        public IWebDriver Driver { get; set; }
-        public LoginPage LoginPage { get; set; }
-        public InventoryPage InventoryPage { get; set; }
-        public CartPage CartPage { get; set; }
+        protected IWebDriver Driver { get; set; }
+        protected AlertsPage AlertsPage { get; set; }
+        protected WaitsHelper _waitsHelper { get; set; }
 
         [SetUp]
-        public void Setup()
+        public void SetUp()
         {
-            Driver = new ChromeDriver();
-            LoginPage = new LoginPage(Driver);
-            InventoryPage = new InventoryPage(Driver);
-            CartPage = new CartPage(Driver);
+            Driver = new Browser().Driver;
+            AlertsPage = new AlertsPage(Driver);
+            _waitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.ReadConfiguration().Timeout));
         }
 
         [TearDown]
