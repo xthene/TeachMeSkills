@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using TeachMeSkills.Helpers;
 
-namespace TeachMeSkills.Test
+namespace TeachMeSkills.Test.DemoQa
 {
     internal class AlertTest : BaseTest
     {

@@ -2,7 +2,8 @@
 using OpenQA.Selenium;
 using TeachMeSkills.Core;
 using TeachMeSkills.Helpers;
-using TeachMeSkills.Pages;
+using TeachMeSkills.Pages.DemoQa;
+using TeachMeSkills.Pages.HerokuApp;
 
 namespace TeachMeSkills.Test
 {
@@ -10,6 +11,7 @@ namespace TeachMeSkills.Test
     {
         protected IWebDriver Driver { get; set; }
         protected AlertsPage AlertsPage { get; set; }
+        protected DynamicControlsPage DynamicControlsPage { get; set; }
         protected WaitsHelper _waitsHelper { get; set; }
 
         [SetUp]
@@ -17,6 +19,7 @@ namespace TeachMeSkills.Test
         {
             Driver = new Browser().Driver;
             AlertsPage = new AlertsPage(Driver);
+            DynamicControlsPage = new DynamicControlsPage(Driver);
             _waitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.ReadConfiguration().Timeout));
         }
 
