@@ -1,13 +1,13 @@
 ﻿using NUnit.Framework;
 using TeachMeSkills.Helpers;
 
-namespace TeachMeSkills.Test.LoginTests
+namespace TeachMeSkills.Tests.LoginTests
 {
     [TestFixture]
     public class NegativeTests : BaseTest
     {
         [SetUp]
-        public void Setup()
+        public void SetUp()
         {
             Driver.Navigate().GoToUrl(Configurator.ReadConfiguration().SauceDemoUrl);
         }

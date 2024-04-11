@@ -7,9 +7,9 @@ namespace TeachMeSkills.Pages
         private static readonly By productsTitleBy = By.XPath("//*[.='Products']");
         private static readonly By addToCartButtons = By.XPath("//div[@class='inventory_item']/descendant::button");
         private static readonly By itemNameDivs = By.XPath("//div[@class='inventory_item_name ']");
-        private static readonly By priceDivs = By.XPath("//div[@class='pricebar']/child::div[@class='inventory_item_price']");
+        private static readonly By priceText = By.XPath("//div[@class='pricebar']/child::div[@class='inventory_item_price']/child");
 
-        public IWebDriver Driver { get; set; }
+        private IWebDriver Driver { get; set; }
 
         public InventoryPage(IWebDriver driver) : base(driver)
         {
@@ -19,7 +19,7 @@ namespace TeachMeSkills.Pages
         public IWebElement ProductsTitle() => Driver.FindElement(productsTitleBy);
         public IEnumerable<IWebElement> AddToCartButtons() => Driver.FindElements(addToCartButtons);
         public IEnumerable<IWebElement> ItemNameDivs() => Driver.FindElements(itemNameDivs);
-        public IEnumerable<IWebElement> PriceDivs() => Driver.FindElements(priceDivs);
+        public IEnumerable<IWebElement> PriceText() => Driver.FindElements(priceText);
         public IWebElement FirstAddToCartButton() => AddToCartButtons().FirstOrDefault();
         public void ClickFirstAddToItemButton() => FirstAddToCartButton().Click();
         

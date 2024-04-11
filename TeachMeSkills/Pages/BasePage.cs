@@ -6,7 +6,7 @@ namespace TeachMeSkills.Pages
     {
         private IWebDriver Driver { get; set; }
 
-        public BasePage(IWebDriver driver)
+        protected BasePage(IWebDriver driver)
         {
             Driver = driver;
         }

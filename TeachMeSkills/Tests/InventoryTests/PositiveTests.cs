@@ -1,13 +1,13 @@
 ﻿using NUnit.Framework;
 using TeachMeSkills.Helpers;
 
-namespace TeachMeSkills.Test.InventoryTests
+namespace TeachMeSkills.Tests.InventoryTests
 {
     [TestFixture]
     public class PositiveTests : BaseTest
     {
         [SetUp]
-        public void Setup()
+        public void SetUp()
         {
             Driver.Navigate().GoToUrl(Configurator.ReadConfiguration().SauceDemoUrl);
             LoginPage.Login(Configurator.ReadConfiguration().UserNameSauceDemo,
@@ -39,12 +39,45 @@ namespace TeachMeSkills.Test.InventoryTests
         }
 
         [Test]
-        public void SortByNameAZTest()
+        public void SortByNameAzTest()
         {
             HeaderPage.SelectAZSort();
 
             var actualResult = InventoryPage.ItemNameDivs();
             var expectedResult = InventoryPage.ItemNameDivs().OrderBy(i => i.Text);
+
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
+        }
+
+        [Test]
+        public void SortByNameZaTest()
+        {
+            HeaderPage.SelectZASort();
+
+            var actualResult = InventoryPage.ItemNameDivs();
+            var expectedResult = InventoryPage.ItemNameDivs().OrderByDescending(i => i.Text);
+
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
+        }
+
+        [Test]
+        public void SortByPriceLoHi()
+        {
+            HeaderPage.SelectLoHiSort();
+
+            var actualResult = InventoryPage.PriceText();
+            var expectedResult = InventoryPage.PriceText().OrderBy(i => i.Text);
+
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
+        }
+
+        [Test]
+        public void SortByPriceHiLo()
+        {
+            HeaderPage.SelectHiLoSort();
+
+            var actualResult = InventoryPage.PriceText();
+            var expectedResult = InventoryPage.PriceText().OrderByDescending(i => i.Text);
 
             Assert.That(actualResult, Is.EqualTo(expectedResult));
         }

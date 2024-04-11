@@ -3,15 +3,15 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TeachMeSkills.Pages;
 
-namespace TeachMeSkills.Test
+namespace TeachMeSkills.Tests
 {
     public class BaseTest
     {
-        public IWebDriver Driver { get; set; }
-        public LoginPage LoginPage { get; set; }
-        public InventoryPage InventoryPage { get; set; }
-        public CartPage CartPage { get; set; }
-        public HeaderPage HeaderPage { get; set; }
+        protected IWebDriver Driver { get; private set; }
+        protected LoginPage LoginPage { get; private set; }
+        protected InventoryPage InventoryPage { get; private set; }
+        public CartPage? CartPage { get; set; }
+        protected HeaderPage HeaderPage { get; private set; }
 
         [SetUp]
         public void Setup()

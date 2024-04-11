@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace TeachMeSkills.Helpers
 {
-    public class Configurator
+    public abstract class Configurator
     {
         public static AppSettings ReadConfiguration()
         {

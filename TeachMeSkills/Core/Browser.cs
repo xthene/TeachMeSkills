@@ -5,7 +5,7 @@ namespace TeachMeSkills.Core
 {
     public class Browser
     {
-        public IWebDriver Driver { get; set; }
+        private IWebDriver Driver { get; set; }
 
         public Browser()
         {
