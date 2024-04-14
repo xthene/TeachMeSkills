@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework.Internal;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
@@ -42,6 +43,12 @@ namespace TeachMeSkills.Helpers
             {
                 throw new WebDriverTimeoutException($"Element visible after {_timeout} seconds");
             }
+        }
+
+        public bool WaitForElement(IWebElement element)
+        {
+            _wait.Until(d =>  element.Displayed);
+            return true;
         }
 
         public IAlert WaitForAlertIsPresent()

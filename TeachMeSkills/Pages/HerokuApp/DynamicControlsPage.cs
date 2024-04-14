@@ -4,9 +4,9 @@ namespace TeachMeSkills.Pages.HerokuApp
 {
     internal class DynamicControlsPage : BasePage
     {
-        private readonly By checkBox = By.XPath("//input[@type='checkbox']");
+        public readonly By checkBox = By.XPath("//input[@type='checkbox']");
         private readonly By removeButton = By.XPath("//button[contains(text(), 'Remove')]");
-        private readonly By infoMessage = By.XPath("");
+        private readonly By infoMessage = By.XPath("//p[@id='message']");
 
         private IWebDriver Driver { get; set; }
 
