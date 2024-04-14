@@ -13,7 +13,7 @@ namespace TeachMeSkills.Pages.DemoQa
 
         private IWebDriver Driver { get; set; }
 
-        public AlertsPage(IWebDriver driver)
+        public AlertsPage(IWebDriver driver) : base(driver)
         {
             Driver = driver;
         }

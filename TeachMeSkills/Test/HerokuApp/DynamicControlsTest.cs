@@ -22,9 +22,19 @@ namespace TeachMeSkills.Test.HerokuApp
         {
             DynamicControlsPage.RemoveButtonClick();
 
-            _waitsHelper.WaitForVisibility(DynamicControlsPage.Message());
+            _waitsHelper.WaitForElement(DynamicControlsPage.Message());
 
-            Assert.That();
+            Assert.That(DynamicControlsPage.Message().Displayed, Is.True);
+        }
+
+        [Test]
+        public void CheckForCheckboxDisappears()
+        {
+            DynamicControlsPage.RemoveButtonClick();
+
+            var res = _waitsHelper.WaitForElementInvisible(DynamicControlsPage.checkBox);
+
+            Assert.That(res, Is.True);
         }
     }
 }
