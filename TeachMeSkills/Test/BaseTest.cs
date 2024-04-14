@@ -18,6 +18,7 @@ namespace TeachMeSkills.Test
         protected WindowsPage WindowsPage { get; set; }
         protected NewWindowPage NewWindowPage { get; set; }
         protected ContextMenuPage ContextMenuPage { get; set; }
+        protected FileUploadPage FileUploadPage { get; set; }
         protected WaitsHelper _waitsHelper { get; set; }
 
         [OneTimeSetUp]
@@ -35,6 +36,7 @@ namespace TeachMeSkills.Test
             WindowsPage = new WindowsPage(Driver);
             NewWindowPage = new NewWindowPage(Driver);
             ContextMenuPage = new ContextMenuPage(Driver);
+            FileUploadPage = new FileUploadPage(Driver);
             _waitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.ReadConfiguration().Timeout));
         }
 
