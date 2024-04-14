@@ -17,6 +17,7 @@ namespace TeachMeSkills.Test
         protected DynamicControlsPage DynamicControlsPage { get; set; }
         protected WindowsPage WindowsPage { get; set; }
         protected NewWindowPage NewWindowPage { get; set; }
+        protected ContextMenuPage ContextMenuPage { get; set; }
         protected WaitsHelper _waitsHelper { get; set; }
 
         [OneTimeSetUp]
@@ -33,6 +34,7 @@ namespace TeachMeSkills.Test
             DynamicControlsPage = new DynamicControlsPage(Driver);
             WindowsPage = new WindowsPage(Driver);
             NewWindowPage = new NewWindowPage(Driver);
+            ContextMenuPage = new ContextMenuPage(Driver);
             _waitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.ReadConfiguration().Timeout));
         }
 
