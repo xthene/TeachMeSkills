@@ -15,6 +15,10 @@ namespace TeachMeSkills.Test
         protected IWebDriver Driver { get; set; }
         protected AlertsPage AlertsPage { get; set; }
         protected DynamicControlsPage DynamicControlsPage { get; set; }
+        protected WindowsPage WindowsPage { get; set; }
+        protected NewWindowPage NewWindowPage { get; set; }
+        protected ContextMenuPage ContextMenuPage { get; set; }
+        protected FileUploadPage FileUploadPage { get; set; }
         protected WaitsHelper _waitsHelper { get; set; }
 
         [OneTimeSetUp]
@@ -29,6 +33,10 @@ namespace TeachMeSkills.Test
             Driver = new Browser().Driver;
             AlertsPage = new AlertsPage(Driver);
             DynamicControlsPage = new DynamicControlsPage(Driver);
+            WindowsPage = new WindowsPage(Driver);
+            NewWindowPage = new NewWindowPage(Driver);
+            ContextMenuPage = new ContextMenuPage(Driver);
+            FileUploadPage = new FileUploadPage(Driver);
             _waitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.ReadConfiguration().Timeout));
         }
 
