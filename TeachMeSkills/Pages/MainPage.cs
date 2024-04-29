@@ -2,12 +2,11 @@
 
 namespace TeachMeSkills.Pages
 {
-    public class BasePage
+    public class MainPage : BasePage
     {
         protected IWebDriver Driver { get; set; }
 
-
-        public BasePage(IWebDriver driver)
+        public MainPage(IWebDriver driver) : base(driver)
         {
             Driver = driver;
         }
