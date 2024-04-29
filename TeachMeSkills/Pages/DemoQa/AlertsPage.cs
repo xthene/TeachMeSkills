@@ -2,7 +2,7 @@
 
 namespace TeachMeSkills.Pages.DemoQa
 {
-    internal class AlertsPage : BasePage
+    public class AlertsPage : BasePage
     {
         private readonly By alertButton = By.XPath("//button[@id='alertButton']");
         private readonly By timerAlertButton = By.XPath("//button[@id='timerAlertButton']");

@@ -2,7 +2,7 @@
 
 namespace TeachMeSkills.Pages.HerokuApp
 {
-    internal class WindowsPage : BasePage
+    public class WindowsPage : BasePage
     {
         private readonly By link = By.XPath("//a[contains(text(), 'Click Here')]");
 

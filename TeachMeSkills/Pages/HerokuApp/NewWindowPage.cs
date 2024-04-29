@@ -2,7 +2,7 @@
 
 namespace TeachMeSkills.Pages.HerokuApp
 {
-    internal class NewWindowPage : BasePage
+    public class NewWindowPage : BasePage
     {
         private readonly By text = By.TagName("h3");
 

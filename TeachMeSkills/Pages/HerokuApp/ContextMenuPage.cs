@@ -2,7 +2,7 @@
 
 namespace TeachMeSkills.Pages.HerokuApp
 {
-    internal class ContextMenuPage : BasePage
+    public class ContextMenuPage : BasePage
     {
         private By hotSpot = By.XPath("//div[@id='hot-spot']");
 

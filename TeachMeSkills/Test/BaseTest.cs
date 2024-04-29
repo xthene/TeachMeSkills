@@ -10,7 +10,7 @@ using TeachMeSkills.Pages.HerokuApp;
 namespace TeachMeSkills.Test
 {
     [AllureNUnit]
-    internal class BaseTest
+    public class BaseTest
     {
         protected IWebDriver Driver { get; set; }
         protected AlertsPage AlertsPage { get; set; }

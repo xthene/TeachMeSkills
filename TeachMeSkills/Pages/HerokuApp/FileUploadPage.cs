@@ -2,7 +2,7 @@
 
 namespace TeachMeSkills.Pages.HerokuApp
 {
-    internal class FileUploadPage : BasePage
+    public class FileUploadPage : BasePage
     {
         private readonly By chooseButton = By.XPath("//button[contains(text(), 'Choose')]");
         private readonly By resetButton = By.XPath("//button[contains(text(), 'Reset')]");

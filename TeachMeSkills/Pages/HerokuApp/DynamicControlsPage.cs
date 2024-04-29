@@ -2,7 +2,7 @@
 
 namespace TeachMeSkills.Pages.HerokuApp
 {
-    internal class DynamicControlsPage : BasePage
+    public class DynamicControlsPage : BasePage
     {
         public readonly By checkBox = By.XPath("//input[@type='checkbox']");
         private readonly By removeButton = By.XPath("//button[contains(text(), 'Remove')]");

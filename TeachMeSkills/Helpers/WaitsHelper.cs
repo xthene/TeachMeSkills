@@ -5,7 +5,7 @@ using SeleniumExtras.WaitHelpers;
 
 namespace TeachMeSkills.Helpers
 {
-    internal class WaitsHelper
+    public class WaitsHelper
     {
         private IWebDriver Driver { get; set; }
         private WebDriverWait _wait;
