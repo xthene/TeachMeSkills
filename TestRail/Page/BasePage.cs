@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace TeachMeSkills.Pages
+namespace TestRail.Page
 {
     public class BasePage
     {

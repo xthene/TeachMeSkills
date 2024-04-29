@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
-using TeachMeSkills.Helpers;
+using TestRail.Utils;
 
-namespace TeachMeSkills.Core
+namespace TestRail.Core
 {
     public class Browser
     {

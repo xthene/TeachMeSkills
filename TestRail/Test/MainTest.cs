@@ -1,20 +1,16 @@
-﻿using NUnit.Framework;
-using TeachMeSkills.Utils;
+﻿using Allure.NUnit;
+using TestRail.Utils;
 
-namespace TeachMeSkills.Tests
+namespace TestRail.Test
 {
     [TestFixture]
-    internal class LoginTest : BaseTest
+    [AllureNUnit]
+    internal class MainTest : BaseTest
     {
         [SetUp]
         public void SetUp()
         {
             Driver.Navigate().GoToUrl(Configurator.ReadConfiguration().Url);
-        }
-
-        [Test]
-        public void CorrectLogin()
-        {
             LoginPage.Login(Configurator.ReadConfiguration().Username, Configurator.ReadConfiguration().Password);
         }
     }

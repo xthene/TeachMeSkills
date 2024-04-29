@@ -1,12 +1,12 @@
 ﻿using OpenQA.Selenium;
 
-namespace TeachMeSkills.Pages
+namespace TestRail.Page
 {
     public class LoginPage : BasePage
     {
         private readonly By usernameInput = By.XPath("//input[@id='name']");
         private readonly By passwordInput = By.XPath("//input[@id='password']");
-        private readonly By loginButton = By.XPath("//button[@id='button-primary']");
+        private readonly By loginButton = By.XPath("//button[@id='button_primary']");
 
         protected IWebDriver Driver { get; set; }
 

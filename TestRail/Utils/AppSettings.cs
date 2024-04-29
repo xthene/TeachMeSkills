@@ -1,4 +1,4 @@
-﻿namespace TeachMeSkills.Utils
+﻿namespace TestRail.Utils
 {
     public class AppSettings
     {
