@@ -1,11 +1,11 @@
-﻿using Allure.NUnit;
+﻿using Allure.Commons;
+using NUnit.Allure.Core;
 using OpenQA.Selenium;
 using TestRail.Core;
 using TestRail.Page;
 
 namespace TestRail.Test
 {
-    [TestFixture]
     [AllureNUnit]
     public class BaseTest
     {
@@ -15,6 +15,12 @@ namespace TestRail.Test
         public MainPage MainPage { get; set; }
         public AddProjectPage AddProjectPage { get; set; }
         public ProjectsPage ProjectsPage { get; set; }
+
+        [OneTimeSetUp]
+        public void GlobalSetUp()
+        {
+            AllureLifecycle.Instance.CleanupResultDirectory();
+        }
 
         [SetUp]
         public void Setup()
