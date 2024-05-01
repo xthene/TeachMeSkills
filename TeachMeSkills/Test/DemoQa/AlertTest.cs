@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Allure.NUnit.Attributes;
+using NUnit.Framework;
 using TeachMeSkills.Helpers;
 
 namespace TeachMeSkills.Test.DemoQa
@@ -12,6 +13,9 @@ namespace TeachMeSkills.Test.DemoQa
         }
 
         [Test]
+        [AllureEpic("Web interface")]
+        [AllureFeature("Alerts")]
+        [AllureStory("Test alert")]
         public void ClickForAlert()
         {
             AlertsPage.AlertButtonClick();
@@ -22,6 +26,9 @@ namespace TeachMeSkills.Test.DemoQa
         }
 
         [Test]
+        [AllureEpic("Web interface")]
+        [AllureFeature("Alerts")]
+        [AllureStory("Test timer alert")]
         public void ClickForTimerAlert()
         {
             AlertsPage.TimerAlertButtonClick();
@@ -32,6 +39,9 @@ namespace TeachMeSkills.Test.DemoQa
         }
 
         [Test]
+        [AllureEpic("Web interface")]
+        [AllureFeature("Alerts")]
+        [AllureStory("Test confirm button alert")]
         public void ClickForConfirmButtonAlertAccept()
         {
             AlertsPage.ConfirmButtonClick();
@@ -43,6 +53,9 @@ namespace TeachMeSkills.Test.DemoQa
         }
 
         [Test]
+        [AllureEpic("Web interface")]
+        [AllureFeature("Alerts")]
+        [AllureStory("Test confirm button alert")]
         public void ClickForConfirmButtonAlertDismiss()
         {
             AlertsPage.ConfirmButtonClick();
@@ -54,6 +67,9 @@ namespace TeachMeSkills.Test.DemoQa
         }
 
         [Test]
+        [AllureEpic("Web interface")]
+        [AllureFeature("Alerts")]
+        [AllureStory("Test prompt")]
         public void ClickForPromptButton()
         {
             var name = "Vasya";

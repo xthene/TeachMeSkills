@@ -52,7 +52,9 @@ namespace TeachMeSkills.Test
         [Test]
         public void FailedTest()
         {
+            Driver.Navigate().GoToUrl("https://google.com");
             Assert.Fail();
+            logger.Error("Test failed");
         }
     }
 }

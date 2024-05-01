@@ -1,6 +1,9 @@
 ﻿using Allure.Net.Commons;
 using Allure.NUnit;
+using NLog;
+using NLog.Config;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using TeachMeSkills.Core;
 using TeachMeSkills.Helpers;
@@ -9,10 +12,14 @@ using TeachMeSkills.Pages.HerokuApp;
 
 namespace TeachMeSkills.Test
 {
+    [TestFixture]
+    [Parallelizable(ParallelScope.All)]
+    [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
     [AllureNUnit]
     public class BaseTest
     {
         protected IWebDriver Driver { get; set; }
+        protected Logger logger = LogManager.GetCurrentClassLogger();
         protected AlertsPage AlertsPage { get; set; }
         protected DynamicControlsPage DynamicControlsPage { get; set; }
         protected WindowsPage WindowsPage { get; set; }
@@ -22,8 +29,9 @@ namespace TeachMeSkills.Test
         protected WaitsHelper _waitsHelper { get; set; }
 
         [OneTimeSetUp]
-        public void GlobalSetUp()
+        public static void GlobalSetUp()
         {
+            new NLogConfig().Config();
             AllureLifecycle.Instance.CleanupResultDirectory();
         }
 
@@ -43,6 +51,27 @@ namespace TeachMeSkills.Test
         [TearDown]
         public void TearDown()
         {
+            if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
+            {
+                var screenshot = ((ITakesScreenshot)Driver).GetScreenshot();
+                var textAreaScreenshot = ((ITakesScreenshot)Driver.FindElement(By.TagName("textarea"))).GetScreenshot();
+                var screenshotByte = screenshot.AsByteArray;
+                var textAreaScreenshotByte = textAreaScreenshot.AsByteArray;
+                AllureApi.AddAttachment("screenshot", "image/png", screenshotByte);
+                AllureApi.AddAttachment("textArea", "image/png", textAreaScreenshotByte);
+            }
+
+            try
+            {
+                var loggerPath = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName,
+                    "fileLogger.txt");
+                AllureApi.AddAttachment("logger", "text/html", loggerPath);
+            }
+            catch
+            {
+                Console.WriteLine("couldnt load file");
+            }
+
             Driver.Dispose();
         }
     }

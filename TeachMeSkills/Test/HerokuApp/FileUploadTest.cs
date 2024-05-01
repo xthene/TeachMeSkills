@@ -1,10 +1,6 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Allure.NUnit.Attributes;
+using NUnit.Framework;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TeachMeSkills.Test.HerokuApp
 {
@@ -17,6 +13,9 @@ namespace TeachMeSkills.Test.HerokuApp
         }
 
         [Test]
+        [AllureEpic("Web interface")]
+        [AllureFeature("File upload")]
+        [AllureStory("Reset button")]
         public void CheckFileUpload()
         {
             var filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Resources",
@@ -26,8 +25,6 @@ namespace TeachMeSkills.Test.HerokuApp
             FileUploadPage.ResetButtonClick();
 
             Assert.That(FileUploadPage.FileUploadInput().Text, Is.EqualTo(""));
-
-
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Allure.NUnit.Attributes;
+using NUnit.Framework;
 using TeachMeSkills.Helpers;
 
 namespace TeachMeSkills.Test.HerokuApp
@@ -12,12 +13,14 @@ namespace TeachMeSkills.Test.HerokuApp
         }
 
         [Test]
+        [AllureStep("Open checkboxes page")]
         public void CheckForCheckboxExists()
         {
             Assert.That(DynamicControlsPage.CheckBox(), Is.Not.Null);
         }
 
         [Test]
+        [AllureStep("Click for remove button")]
         public void CheckForMessageWhenRemoveButtonClick()
         {
             DynamicControlsPage.RemoveButtonClick();
@@ -28,6 +31,7 @@ namespace TeachMeSkills.Test.HerokuApp
         }
 
         [Test]
+        [AllureStep("Click for remove button")]
         public void CheckForCheckboxDisappears()
         {
             DynamicControlsPage.RemoveButtonClick();
