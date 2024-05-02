@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using TestRail.Element;
 
 namespace TestRail.Page
 {
@@ -13,17 +14,19 @@ namespace TestRail.Page
         private readonly By addProjectButton = By.XPath("//button[@id='accept']");
 
         protected IWebDriver Driver { get; set; }
+        public override string GetEndpoint()
+        {
+            throw new NotImplementedException();
+        }
 
         public AddProjectPage(IWebDriver driver) : base(driver)
-        {
-            Driver = driver;
-        }
+        { }
 
         public void SendProjectName(string projectName) => Driver.FindElement(nameInput).SendKeys(projectName);
         public void AccessTabClick() => Driver.FindElement(accessTab).Click();
-        public void AddProjectButtonClick() => Driver.FindElement(addProjectButton).Click();
-        public IWebElement AddProjectButton() => Driver.FindElement(addProjectButton);
-        public SelectElement RoleSelectElement() => new SelectElement(Driver.FindElement(roleSelect));
+        public Button AddProjectButton() => new(Driver, addProjectButton);
+        public void AddProjectButtonClick() => AddProjectButton().Click();
+        public SelectElement RoleSelectElement() => new(Driver.FindElement(roleSelect));
 
         public void AddProjectWithRequiredFields(string name, string role)
         {
@@ -31,6 +34,16 @@ namespace TestRail.Page
             AccessTabClick();
             RoleSelectElement().SelectByText(role);
             AddProjectButtonClick();
+        }
+
+        protected override void ExecuteLoad()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override bool EvaluateLoadedStatus()
+        {
+            return AddProjectButton().Displayed;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using TestRail.Element;
 
 namespace TestRail.Page
 {
@@ -6,12 +7,23 @@ namespace TestRail.Page
     {
         private readonly By successMessage = By.XPath("//div[contains(text(), 'Successfully added the new project.')]");
         protected IWebDriver Driver { get; set; }
-
-        public ProjectsPage(IWebDriver driver) : base(driver)
+        public override string GetEndpoint()
         {
-            Driver = driver;
+            throw new NotImplementedException();
         }
 
-        public IWebElement SuccessMessage() => Driver.FindElement(successMessage);
+        public ProjectsPage(IWebDriver driver) : base(driver)
+        { }
+
+        public UIElement SuccessMessage() => new(Driver, successMessage);
+        protected override void ExecuteLoad()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override bool EvaluateLoadedStatus()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
