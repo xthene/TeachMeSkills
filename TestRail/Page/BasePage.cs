@@ -1,26 +1,15 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using TestRail.Utils;
 
 namespace TestRail.Page
 {
-    public abstract class BasePage : LoadableComponent<BasePage>
+    public class BasePage
     {
         protected IWebDriver Driver { get; set; }
 
 
-        public BasePage(IWebDriver driver, bool openPageByUrl = false)
+        public BasePage(IWebDriver driver)
         {
             Driver = driver;
-            if (openPageByUrl)
-                Load();
-        }
-
-        public abstract string GetEndpoint();
-
-        public void OpenPageByUrl(string endPoint)
-        {
-            Driver.Navigate().GoToUrl(Configurator.ReadConfiguration().Url + endPoint);
         }
     }
 }

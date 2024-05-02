@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using TestRail.Element;
 
 namespace TestRail.Page
 {
@@ -10,24 +9,11 @@ namespace TestRail.Page
         protected IWebDriver Driver { get; set; }
 
         public MainPage(IWebDriver driver) : base(driver)
-        { }
-
-        public Button AddProjectButton() => new(Driver, addProjectButton);
-        public void AddProjectButtonClick() => AddProjectButton().Click();
-
-        public override string GetEndpoint()
         {
-            throw new NotImplementedException();
+            Driver = driver;
         }
 
-        protected override void ExecuteLoad()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override bool EvaluateLoadedStatus()
-        {
-            return AddProjectButton().Displayed;
-        }
+        public IWebElement AddProjectButton() => Driver.FindElement(addProjectButton);
+        public void AddProjectButtonClick() => Driver.FindElement(addProjectButton).Click();
     }
 }

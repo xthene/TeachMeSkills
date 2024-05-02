@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using TestRail.Element;
 
 namespace TestRail.Page
 {
@@ -12,33 +11,19 @@ namespace TestRail.Page
         protected IWebDriver Driver { get; set; }
 
         public LoginPage(IWebDriver driver) : base(driver)
-        { }
+        {
+            Driver = driver;
+        }
 
-        public UIElement UsernameInput() => new(Driver, usernameInput);
-        public UIElement PasswordInput() => new(Driver, passwordInput);
-        public Button LoginButton() => new(Driver, loginButton);
-        public void LoginButtonClick() => LoginButton().Click();
+        public IWebElement UsernameInput() => Driver.FindElement(usernameInput);
+        public IWebElement PasswordInput() => Driver.FindElement(passwordInput);
+        public void LoginButtonClick() => Driver.FindElement(loginButton).Click();
 
         public void Login(string username, string password)
         {
             UsernameInput().SendKeys(username);
             PasswordInput().SendKeys(password);
             LoginButtonClick();
-        }
-
-        public override string GetEndpoint()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void ExecuteLoad()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override bool EvaluateLoadedStatus()
-        {
-            return LoginButton().Displayed;
         }
     }
 }
