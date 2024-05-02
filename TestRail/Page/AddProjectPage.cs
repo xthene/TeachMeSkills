@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using TestRail.Element;
 
 namespace TestRail.Page
 {
@@ -15,14 +16,12 @@ namespace TestRail.Page
         protected IWebDriver Driver { get; set; }
 
         public AddProjectPage(IWebDriver driver) : base(driver)
-        {
-            Driver = driver;
-        }
+        { }
 
         public void SendProjectName(string projectName) => Driver.FindElement(nameInput).SendKeys(projectName);
         public void AccessTabClick() => Driver.FindElement(accessTab).Click();
         public void AddProjectButtonClick() => Driver.FindElement(addProjectButton).Click();
-        public IWebElement AddProjectButton() => Driver.FindElement(addProjectButton);
+        public UIElement AddProjectButton() => new(Driver, addProjectButton);
         public SelectElement RoleSelectElement() => new SelectElement(Driver.FindElement(roleSelect));
 
         public void AddProjectWithRequiredFields(string name, string role)
