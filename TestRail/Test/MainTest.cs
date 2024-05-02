@@ -1,4 +1,4 @@
-﻿using Allure.NUnit;
+﻿using NUnit.Allure.Core;
 using TestRail.Utils;
 
 namespace TestRail.Test
