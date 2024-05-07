@@ -13,10 +13,19 @@ namespace TestRail.Page
 
         private readonly By addProjectButton = By.XPath("//button[@id='accept']");
 
+        private readonly string _endPoint = "";
+
         protected IWebDriver Driver { get; set; }
 
-        public AddProjectPage(IWebDriver driver) : base(driver)
-        { }
+        public override string GetEndpoint()
+        {
+            return _endPoint;
+        }
+
+        public AddProjectPage(IWebDriver driver, bool openPageByUrl = false) : base(driver, openPageByUrl)
+        {
+            Driver = driver;
+        }
 
         public void SendProjectName(string projectName) => Driver.FindElement(nameInput).SendKeys(projectName);
         public void AccessTabClick() => Driver.FindElement(accessTab).Click();
@@ -30,6 +39,11 @@ namespace TestRail.Page
             AccessTabClick();
             RoleSelectElement().SelectByText(role);
             AddProjectButtonClick();
+        }
+
+        protected override bool EvaluateLoadedStatus()
+        {
+            return AddProjectButton().Enabled;
         }
     }
 }

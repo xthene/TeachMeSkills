@@ -14,7 +14,9 @@ namespace TestRail.Test
         public LoginPage LoginPage { get; set; }
         public MainPage MainPage { get; set; }
         public AddProjectPage AddProjectPage { get; set; }
+        public AdministrationPage AdministrationPage { get; set; }
         public ProjectsPage ProjectsPage { get; set; }
+        public OverviewProjectPage OverviewProjectPage { get; set; }
 
         [OneTimeSetUp]
         public void GlobalSetUp()
@@ -29,7 +31,9 @@ namespace TestRail.Test
             LoginPage = new LoginPage(Driver);
             MainPage = new MainPage(Driver);
             AddProjectPage = new AddProjectPage(Driver);
+            AdministrationPage = new AdministrationPage(Driver);
             ProjectsPage = new ProjectsPage(Driver);
+            OverviewProjectPage = new OverviewProjectPage(Driver);
         }
 
         [TearDown]

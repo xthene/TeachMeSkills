@@ -17,9 +17,10 @@ namespace TestRail.Test
         [Test]
         public void AddCorrectProjectTest()
         {
-            AddProjectPage.AddProjectWithRequiredFields("ESiniak", "Tester");
+            string projectName = Configurator.ReadConfiguration().ProjectName;
+            AddProjectPage.AddProjectWithRequiredFields(projectName, "Tester");
 
-            Assert.That(ProjectsPage.SuccessMessage().Enabled);
+            Assert.That(ProjectsPage.SuccessAddProductMessage().Enabled);
         }
     }
 }
