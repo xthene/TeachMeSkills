@@ -1,4 +1,5 @@
 ﻿using NUnit.Allure.Core;
+using TestRail.Models;
 using TestRail.Utils;
 
 namespace TestRail.Test
@@ -10,17 +11,26 @@ namespace TestRail.Test
         public void Setup()
         {
             Driver.Navigate().GoToUrl(Configurator.ReadConfiguration().Url);
-            LoginPage.Login(Configurator.ReadConfiguration().Username, Configurator.ReadConfiguration().Password);
-            MainPage.AddProjectButtonClick();
+            UserStep.SuccessfulLogin(new UserModel() {UserName = Configurator.ReadConfiguration().Username, Password = Configurator.ReadConfiguration().Password})
+                .AddProjectButtonClick();
         }
 
         [Test]
         public void AddCorrectProjectTest()
         {
-            string projectName = Configurator.ReadConfiguration().ProjectName;
-            AddProjectPage.AddProjectWithRequiredFields(projectName, "Tester");
+            var project = new ProjectModel()
+            {
+                Name = Configurator.ReadConfiguration().ProjectName,
+                Announcement = "test announcement",
+                IsShowAnnouncement = true,
+                ProjectType = "Use multiple test suites to manage cases",
+                IsEnableTestCase = true,
+                DefaultAccessRole = "Tester"
+            };
 
-            Assert.That(ProjectsPage.SuccessAddProductMessage().Enabled);
+            NavigationStep.NavigationToAddProjectPage().AddProjectWithRequiredFields(project);
+
+            Assert.That(NavigationStep.NavigationToProjectsPage(false).SuccessAddProductMessage().Enabled);
         }
     }
 }

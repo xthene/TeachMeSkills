@@ -3,7 +3,7 @@ using TestRail.Element;
 
 namespace TestRail.Page
 {
-    public class MainPage : BasePage
+    public class DashboardPage : BasePage
     {
         private readonly By addProjectButton = By.XPath("//a[@id='sidebar-projects-add']");
         private readonly By administrationButton = By.Id("navigation-admin");
@@ -16,7 +16,7 @@ namespace TestRail.Page
             return _endPoint;
         }
 
-        public MainPage(IWebDriver driver, bool openPageByUrl = false) : base(driver, openPageByUrl)
+        public DashboardPage(IWebDriver driver, bool openPageByUrl = false) : base(driver, openPageByUrl)
         {
             Driver = driver;
         }

@@ -13,14 +13,15 @@ namespace TestRail.Page
         {
             Driver = driver;
             if (openPageByUrl)
-                Load();
+                ExecuteLoad();
+                //Load();
         }
 
         public abstract string GetEndpoint();
 
         protected override void ExecuteLoad()
         {
-            Driver.Navigate().GoToUrl(Configurator.ReadConfiguration().Url + GetEndpoint());
+            Driver.Navigate().GoToUrl(Configurator.ReadConfiguration().Url.Trim() + GetEndpoint());
         }
     }
 }

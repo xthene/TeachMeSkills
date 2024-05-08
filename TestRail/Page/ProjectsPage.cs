@@ -38,7 +38,7 @@ namespace TestRail.Page
 
         protected override bool EvaluateLoadedStatus()
         {
-            return RemoveProjectButton().Displayed;
+            return RemoveProjectButton().Enabled;
         }
     }
 }

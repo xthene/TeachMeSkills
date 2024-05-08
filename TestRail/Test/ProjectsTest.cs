@@ -1,4 +1,6 @@
-﻿using TestRail.Utils;
+﻿using TestRail.Models;
+using TestRail.Steps;
+using TestRail.Utils;
 
 namespace TestRail.Test
 {
@@ -8,14 +10,20 @@ namespace TestRail.Test
         public void Setup()
         {
             Driver.Navigate().GoToUrl(Configurator.ReadConfiguration().Url);
-            LoginPage.Login(Configurator.ReadConfiguration().Username, Configurator.ReadConfiguration().Password);
-            MainPage.AdministrationButtonClick();
-            AdministrationPage.ProjectsTabClick();
+
+            var user = new UserModel()
+            {
+                UserName = Configurator.ReadConfiguration().Username,
+                Password = Configurator.ReadConfiguration().Password
+            };
+            UserStep.SuccessfulLogin(user);
         }
 
         [Test]
         public void RemoveProjectTest()
         {
+            var ProjectsPage = NavigationStep.NavigationToProjectsPage(true);
+
             ProjectsPage.RemoveProjectButtonClick();
             ProjectsPage.DeleteCheckBoxCheck();
             ProjectsPage.OkDeleteButtonClick();
