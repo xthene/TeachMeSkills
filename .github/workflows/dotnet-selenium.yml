@@ -37,10 +37,10 @@ jobs:
     # Execute all unit tests in the solution
     - name: Execute positive selenium tests
       if: github.event.inputs.test_category == 'Positive'
-      run: dotnet test
+      run: dotnet test --filter Category=Positive
     - name: Execute negative selenium tests
       if: github.event.inputs.test_category == 'Negative'
-      run: dotnet test
+      run: dotnet test --filter Category=Negative
 
     - name: Load test report history
       uses: actions/checkout@v3
