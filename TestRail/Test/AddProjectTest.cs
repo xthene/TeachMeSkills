@@ -14,6 +14,7 @@ namespace TestRail.Test
         }
 
         [Test]
+        [Category("Positive")]
         public void AddCorrectProjectTest()
         {
             var projectName = Configurator.ReadConfiguration().ProjectName;

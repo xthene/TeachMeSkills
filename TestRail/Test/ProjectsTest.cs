@@ -20,6 +20,7 @@ namespace TestRail.Test
         }
 
         [Test]
+        [Category("Positive")]
         public void RemoveProjectTest()
         {
             var ProjectsPage = NavigationStep.NavigationToProjectsPage(true);

@@ -12,6 +12,7 @@ namespace TestRail.Test
         }
 
         [Test]
+        [Category("Positive")]
         public void CorrectLogin()
         {
             var user = new UserModel()
