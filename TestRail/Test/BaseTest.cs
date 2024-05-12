@@ -1,6 +1,8 @@
-﻿using Allure.Commons;
+﻿using Allure.Net.Commons;
+using Allure.NUnit.Attributes;
 using NUnit.Allure.Core;
 using OpenQA.Selenium;
+using System.Reflection;
 using TestRail.Core;
 using TestRail.Steps;
 
@@ -14,12 +16,6 @@ namespace TestRail.Test
         public NavigationStep NavigationStep { get; set; }
         public UserStep UserStep { get; set; }
 
-        [OneTimeSetUp]
-        public void GlobalSetUp()
-        {
-            AllureLifecycle.Instance.CleanupResultDirectory();
-        }
-
         [SetUp]
         public void Setup()
         {
@@ -30,8 +26,16 @@ namespace TestRail.Test
         }
 
         [TearDown]
+        [AllureAfter("Sriver quite")]
         public void TearDown()
         {
+            if (TestContext.CurrentContext.Result.Outcome.Status == NUnit.Framework.Interfaces.TestStatus.Failed)
+            {
+                var screenshot = ((ITakesScreenshot)Driver).GetScreenshot();
+                var screenshotBytes = screenshot.AsByteArray;
+                AllureApi.AddAttachment("screenshot", "image/png", screenshotBytes);
+            }
+
             Driver.Dispose();
         }
     }
