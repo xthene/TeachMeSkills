@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Sun May 12 10:29:13 GMT 2024","Sun May 12 10:30:13 GMT 2024","60087","","","","ProjectsTest","RemoveProjectTest","RemoveProjectTest",""
+"broken","Sun May 12 10:27:06 GMT 2024","Sun May 12 10:28:12 GMT 2024","66479","","","","AddProjectTest","AddCorrectProjectTest","AddCorrectProjectTest",""
+"broken","Sun May 12 10:28:12 GMT 2024","Sun May 12 10:29:13 GMT 2024","60087","","","","LoginTest","CorrectLogin","CorrectLogin",""
