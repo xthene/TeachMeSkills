@@ -17,6 +17,7 @@ namespace TestRail.Test
         public UserStep UserStep { get; set; }
 
         [SetUp]
+        [AllureBefore("Set up driver")]
         public void Setup()
         {
             Driver = new Browser().Driver;
@@ -26,7 +27,7 @@ namespace TestRail.Test
         }
 
         [TearDown]
-        [AllureAfter("Sriver quite")]
+        [AllureAfter("Driver quite")]
         public void TearDown()
         {
             if (TestContext.CurrentContext.Result.Outcome.Status == NUnit.Framework.Interfaces.TestStatus.Failed)

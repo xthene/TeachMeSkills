@@ -12,6 +12,9 @@ namespace TestRail.Core
         {
             var chromeOptions = new ChromeOptions();
             chromeOptions.AddArgument("--incognito");
+            chromeOptions.AddArgument("--headless");
+            chromeOptions.AddArgument("--disable-extensions");
+            chromeOptions.AddArgument("--disable-gpu");
             chromeOptions.AddArgument("--remote-debugging-pipe");
 
             new DriverManager().SetUpDriver(new ChromeConfig());
