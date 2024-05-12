@@ -5,6 +5,13 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeachMeSkills", "TeachMeSkills\TeachMeSkills.csproj", "{6548F68E-39F7-4D06-AFE8-7F96E4D9BC8C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{04FF605C-28D9-4C04-91F6-E88A900FF4EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{380CE0F2-FCDE-42C5-B141-75F88925BB57}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet-selenium.yml = .github\workflows\dotnet-selenium.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +25,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{380CE0F2-FCDE-42C5-B141-75F88925BB57} = {04FF605C-28D9-4C04-91F6-E88A900FF4EC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {75B29B4A-9F82-491F-B66D-1FECE5522828}
