@@ -19,16 +19,16 @@ namespace TestRail.Test
             UserStep.SuccessfulLogin(user);
         }
 
-        //[Test]
-        //public void RemoveProjectTest()
-        //{
-        //    var ProjectsPage = NavigationStep.NavigationToProjectsPage(true);
+        [Test]
+        public void RemoveProjectTest()
+        {
+            var ProjectsPage = NavigationStep.NavigationToProjectsPage(true);
 
-        //    ProjectsPage.RemoveProjectButtonClick();
-        //    ProjectsPage.DeleteCheckBoxCheck();
-        //    ProjectsPage.OkDeleteButtonClick();
+            ProjectsPage.RemoveProjectButtonClick();
+            ProjectsPage.DeleteCheckBoxCheck();
+            ProjectsPage.OkDeleteButtonClick();
 
-        //    Assert.That(ProjectsPage.SuccessDeleteProductMessage().Enabled);
-        //}
+            Assert.That(ProjectsPage.SuccessDeleteProductMessage().Enabled);
+        }
     }
 }

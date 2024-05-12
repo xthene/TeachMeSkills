@@ -1,10 +1,8 @@
-﻿using NUnit.Allure.Core;
-using TestRail.Models;
+﻿using TestRail.Models;
 using TestRail.Utils;
 
 namespace TestRail.Test
 {
-    [AllureNUnit]
     internal class LoginTest : BaseTest
     {
         [SetUp]
