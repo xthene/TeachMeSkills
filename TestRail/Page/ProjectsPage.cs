@@ -13,6 +13,8 @@ namespace TestRail.Page
         private readonly By deleteCheckbox = By.XPath("//div[@id='deleteDialog']//descendant::input[@data-testid='deleteCheckBoxTestId']");
         private readonly By okDeleteButton = By.XPath("//div[@id='deleteDialog']//descendant::a[@data-testid='caseFieldsTabDeleteDialogButtonOk']");
 
+        private readonly By projectTitle = By.XPath("//table//tbody//tr//td//a");
+
         private readonly string _endPoint = "index.php?/admin/projects/overview";
 
         protected IWebDriver Driver { get; set; }
@@ -35,6 +37,15 @@ namespace TestRail.Page
         public void RemoveProjectButtonClick() => RemoveProjectButton().Click();
         public void DeleteCheckBoxCheck() => DeleteCheckBox().Check();
         public void OkDeleteButtonClick() => OkDeleteButton().Click();
+        public List<string> ProjectsTitles()
+        {
+            var res = new List<string>();
+
+            foreach (var uiProject in Driver.FindElements(projectTitle))
+                res.Add(new UIElement(Driver, uiProject).Text); 
+            
+            return res;
+        }
 
         protected override bool EvaluateLoadedStatus()
         {

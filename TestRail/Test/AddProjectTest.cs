@@ -18,9 +18,11 @@ namespace TestRail.Test
         [Test]
         public void AddCorrectProjectTest()
         {
+            var projectName = Configurator.ReadConfiguration().ProjectName;
+
             var project = new ProjectModel()
             {
-                Name = Configurator.ReadConfiguration().ProjectName,
+                Name = projectName,
                 Announcement = "test announcement",
                 IsShowAnnouncement = true,
                 ProjectType = "Use multiple test suites to manage cases",
@@ -30,7 +32,8 @@ namespace TestRail.Test
 
             NavigationStep.NavigationToAddProjectPage().AddProjectWithRequiredFields(project);
 
-            Assert.That(NavigationStep.NavigationToProjectsPage(false).SuccessAddProductMessage().Enabled);
+            //Assert.That(NavigationStep.NavigationToProjectsPage(false).SuccessAddProductMessage().Enabled);
+            Assert.That(NavigationStep.NavigationToProjectsPage(false).ProjectsTitles().Contains(projectName));
         }
     }
 }
