@@ -1,0 +1,9 @@
+{
+    "allure": {
+        "direcory": "allure-reports",
+        "links": [
+            "https://jira.com/{issue}",
+            "https://tms.com/{tms}"
+        ]
+    }
+}
