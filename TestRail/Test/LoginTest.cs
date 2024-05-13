@@ -23,5 +23,17 @@ namespace TestRail.Test
 
             Assert.That(UserStep.SuccessfulLogin(user).AddProjectButton().Enabled);
         }
+
+        [Test]
+        [Category("Negative")]
+        public void LoginWithoutPassword()
+        {
+            var user = new UserModel()
+            {
+                UserName = Configurator.ReadConfiguration().Username
+            };
+
+            Assert.That(UserStep.UnsuccesfulLoginWithoutPassword(user).GetMessageText() == "Password is required.");
+        }
     }
 }

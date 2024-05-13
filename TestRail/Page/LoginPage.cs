@@ -8,6 +8,7 @@ namespace TestRail.Page
         private readonly By usernameInput = By.XPath("//input[@id='name']");
         private readonly By passwordInput = By.XPath("//input[@id='password']");
         private readonly By loginButton = By.XPath("//button[@id='button_primary']");
+        private readonly By message = By.XPath("//div[contains(@class,'loginpage-message')]");
 
         private readonly string _endPoint = "";
 
@@ -26,7 +27,9 @@ namespace TestRail.Page
         public UIElement UsernameInput() => new(Driver, usernameInput);
         public UIElement PasswordInput() => new(Driver, passwordInput);
         public Button LoginButton() => new(Driver, loginButton);
+        public UIElement Message() => new(Driver, message);
         public void LoginButtonClick() => LoginButton().Click();
+        public string GetMessageText() => Message().Text;
 
         public void Login(string username, string password)
         {
